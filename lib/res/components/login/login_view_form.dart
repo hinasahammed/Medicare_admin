@@ -14,6 +14,8 @@ class LoginViewForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.sizeOf(context);
+
     final loginViewModel = Get.put(LoginViewModel());
 
     final theme = Theme.of(context);
@@ -32,8 +34,8 @@ class LoginViewForm extends StatelessWidget {
                 controller: loginViewModel.flipCardController,
                 front: Container(
                   padding: const EdgeInsets.all(12),
-                  width: Get.width < 600 ? Get.width : Get.width * .3,
-                  height: Get.height * .6,
+                  width: size.width < 600 ? size.width : size.width * .3,
+                  height: size.height * .6,
                   decoration: BoxDecoration(
                     color: Colors.white.withOpacity(.2),
                     borderRadius: BorderRadius.circular(15),
@@ -88,8 +90,8 @@ class LoginViewForm extends StatelessWidget {
                 ),
                 back: Container(
                   padding: const EdgeInsets.all(12),
-                  width: Get.width < 600 ? Get.width : Get.width * .3,
-                  height: Get.height * .6,
+                  width: size.width < 600 ? size.width : size.width * .3,
+                  height: size.height * .6,
                   decoration: BoxDecoration(
                     color: Colors.white.withOpacity(.2),
                     borderRadius: BorderRadius.circular(15),

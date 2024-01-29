@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:medicare_admin/res/assets/image_assets.dart';
-import 'package:medicare_admin/res/components/login_view_content.dart';
-import 'package:medicare_admin/res/components/login_view_form.dart';
+import 'package:medicare_admin/res/components/login/login_view_content.dart';
+import 'package:medicare_admin/res/components/login/login_view_form.dart';
 
 class LoginViewDesktop extends StatelessWidget {
   const LoginViewDesktop({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.sizeOf(context);
+
     return Container(
       padding: const EdgeInsets.symmetric(
         horizontal: 16,
         vertical: 10,
       ),
-      width: Get.width,
+      width: size.width,
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(ImageAssets.loginbg),

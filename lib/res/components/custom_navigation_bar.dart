@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:medicare_admin/res/assets/image_assets.dart';
 import 'package:medicare_admin/res/components/web_navigation_bar.dart';
+import 'package:medicare_admin/view/desktop_layout/admin_dashboard/admin_dashboard.dart';
 
 class CustomNavigationBar extends StatefulWidget {
   const CustomNavigationBar({super.key});
@@ -14,12 +16,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
 
   int currenIndex = 0;
   List pages = [
-    Container(
-      width: double.infinity,
-      height: Get.height,
-      color: Colors.amber,
-      child: const Text('kfjd'),
-    ),
+    const AdminDashboard(),
     Container(
       width: double.infinity,
       height: Get.height,
@@ -40,10 +37,11 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
   ];
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.sizeOf(context);
     final theme = Theme.of(context);
     return Scaffold(
       key: scaffoldKey,
-      appBar: MediaQuery.sizeOf(context).width < 600
+      appBar: size.width < 600
           ? AppBar(
               leading: IconButton(
                 onPressed: () {
@@ -52,20 +50,89 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
                 icon: const Icon(Icons.menu),
               ),
             )
-          : null,
+          : AppBar(
+              leading: const CircleAvatar(
+                backgroundImage: AssetImage(ImageAssets.logo),
+              ),
+              title: Text(
+                'Medicare',
+                style: theme.textTheme.headlineLarge!.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: theme.colorScheme.onPrimaryContainer,
+                ),
+              ),
+            ),
       body: Row(
         children: [
-          if (MediaQuery.sizeOf(context).width >= 600) const WebNavigationBar(),
+          if (MediaQuery.sizeOf(context).width >= 600)
+            NavigationRail(
+              minExtendedWidth: size.width * .19,
+              selectedIconTheme:
+                  IconThemeData(color: theme.colorScheme.onPrimary),
+              selectedLabelTextStyle: theme.textTheme.titleLarge!.copyWith(
+                color: theme.colorScheme.onPrimaryContainer,
+              ),
+              unselectedLabelTextStyle: theme.textTheme.titleLarge!.copyWith(
+                color: theme.colorScheme.onPrimaryContainer.withOpacity(.6),
+              ),
+              indicatorColor: theme.colorScheme.primary,
+              extended: true,
+              onDestinationSelected: (value) {
+                setState(() {
+                  currenIndex = value;
+                });
+              },
+              destinations: const [
+                NavigationRailDestination(
+                  icon: Icon(Icons.dashboard),
+                  label: Text(
+                    'Dashboard',
+                  ),
+                ),
+                NavigationRailDestination(
+                  icon: Icon(Icons.event_available),
+                  label: Text(
+                    'Appointments',
+                  ),
+                ),
+                NavigationRailDestination(
+                  icon: Icon(Icons.local_hospital),
+                  label: Text(
+                    'Doctors',
+                  ),
+                ),
+                NavigationRailDestination(
+                  icon: Icon(Icons.account_circle),
+                  label: Text(
+                    'Users',
+                  ),
+                ),
+                NavigationRailDestination(
+                  icon: Icon(Icons.settings),
+                  label: Text(
+                    'Settings',
+                  ),
+                ),
+                NavigationRailDestination(
+                  icon: Icon(Icons.calendar_month),
+                  label: Text(
+                    'Calendar',
+                  ),
+                ),
+              ],
+              selectedIndex: currenIndex,
+            ),
           Expanded(
             child: pages[currenIndex],
           )
         ],
       ),
-      drawer: Drawer(
-        backgroundColor: Colors.white,
-        width: Get.width * .45,
-        child: const WebNavigationBar(),
-      ),
+      drawer: MediaQuery.sizeOf(context).width < 600
+          ? Drawer(
+              width:size.width * .45,
+              child: const WebNavigationBar(),
+            )
+          : null,
     );
   }
 }

@@ -9,14 +9,16 @@ class LoginViewContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.sizeOf(context);
+
     final loginViewModel = Get.put(LoginViewModel());
     final theme = Theme.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (Get.width > 600)
+        if (size.width > 600)
           SizedBox(
-            width: Get.width * .45,
+            width: size.width * .45,
             child: Text(
               loginViewModel.isAdmin.value
                   ? "Welcome back to the Medicare Administration panel!"
@@ -28,9 +30,9 @@ class LoginViewContent extends StatelessWidget {
             ),
           ),
         const Gap(20),
-        if (Get.width > 600)
+        if (size.width > 600)
           SizedBox(
-            width: Get.width * .45,
+            width: size.width * .45,
             child: Text(
               "You're at the helm of facilitating convenient healthcare access for countless users. Let's take a quick look at the current landscape",
               style: theme.textTheme.bodyLarge!.copyWith(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:get/get.dart';
 import 'package:medicare_admin/res/assets/image_assets.dart';
 import 'package:medicare_admin/res/components/navigation_items_widget.dart';
 
@@ -9,10 +8,12 @@ class WebNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.sizeOf(context);
+
     final theme = Theme.of(context);
     return Container(
-      width: Get.width * .19,
-      height: Get.height,
+      width: size.width * .19,
+      height: size.height,
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: theme.colorScheme.primary,
