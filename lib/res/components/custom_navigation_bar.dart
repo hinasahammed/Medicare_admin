@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:medicare_admin/res/assets/image_assets.dart';
 import 'package:medicare_admin/res/components/web_navigation_bar.dart';
 import 'package:medicare_admin/view/desktop_layout/admin_dashboard/admin_dashboard.dart';
+import 'package:medicare_admin/view/desktop_layout/appointment/admin_appointment.dart';
 
 class CustomNavigationBar extends StatefulWidget {
   const CustomNavigationBar({super.key});
@@ -17,12 +18,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
   int currenIndex = 0;
   List pages = [
     const AdminDashboard(),
-    Container(
-      width: double.infinity,
-      height: Get.height,
-      color: Colors.red,
-      child: const Text('kfjd'),
-    ),
+    const AdminAppointment(),
     Container(
       width: double.infinity,
       height: Get.height,
@@ -129,7 +125,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
       ),
       drawer: MediaQuery.sizeOf(context).width < 600
           ? Drawer(
-              width:size.width * .45,
+              width: size.width * .45,
               child: const WebNavigationBar(),
             )
           : null,
