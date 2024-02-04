@@ -10,43 +10,52 @@ class DashboardLeftUi extends StatelessWidget {
     final size = MediaQuery.sizeOf(context);
 
     final theme = Theme.of(context);
-    return SizedBox(
-      width: size.width * .55,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Dashboard',
-            style: theme.textTheme.titleLarge!.copyWith(
-              color: theme.colorScheme.onBackground,
-              fontWeight: FontWeight.bold,
-            ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Dashboard',
+          style: theme.textTheme.titleLarge!.copyWith(
+            color: theme.colorScheme.onBackground,
+            fontWeight: FontWeight.bold,
           ),
-          const Gap(10),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              DashboardTotalContainer(
-                color: Color(0xffFFA900),
-                title: 'Total\n Doctors',
-                count: '10',
-              ),
-              DashboardTotalContainer(
-                color: Color(0xff796EFF),
-                title: 'Total\n Appointments',
-                count: '30',
-              ),
-              DashboardTotalContainer(
+        ),
+        const Gap(10),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const DashboardTotalContainer(
+              color: Color(0xffFFA900),
+              title: 'Total\n Doctors',
+              count: '10',
+            ),
+            const Gap(10),
+            const DashboardTotalContainer(
+              color: Color(0xff796EFF),
+              title: 'Total\n Appointments',
+              count: '30',
+            ),
+            const Gap(10),
+            if (size.width > 870)
+              const DashboardTotalContainer(
                 color: Color(0xffFF5263),
                 title: 'Total\n Patients',
                 count: '30',
               ),
-            ],
+            const Gap(10),
+          ],
+        ),
+        if (size.width < 600 || size.width > 500 && size.width < 850)
+          const Gap(10),
+        if (size.width < 600 || size.width > 500 && size.width < 850)
+          const DashboardTotalContainer(
+            color: Color(0xffFF5263),
+            title: 'Total\n Patients',
+            count: '30',
           ),
-          const Gap(15),
-          Container(
-            width: size.width * .3,
-            height: size.height * .6,
+        const Gap(15),
+        Expanded(
+          child: Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: Colors.white,
@@ -85,16 +94,11 @@ class DashboardLeftUi extends StatelessWidget {
                       backgroundImage: NetworkImage(
                           'https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
                     ),
-                    subtitle: Row(
-                      children: [
-                        Text(
-                          '45 Male,12 april 9:30',
-                          style: theme.textTheme.labelLarge!.copyWith(
-                            color:
-                                theme.colorScheme.onBackground.withOpacity(.5),
-                          ),
-                        ),
-                      ],
+                    subtitle: Text(
+                      '45 Male,12 april 9:30',
+                      style: theme.textTheme.labelLarge!.copyWith(
+                        color: theme.colorScheme.onBackground.withOpacity(.5),
+                      ),
                     ),
                     trailing: const Icon(
                       Icons.done,
@@ -111,16 +115,11 @@ class DashboardLeftUi extends StatelessWidget {
                         'https://images.unsplash.com/photo-1481214110143-ed630356e1bb?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                       ),
                     ),
-                    subtitle: Row(
-                      children: [
-                        Text(
-                          '45 Female,12 april 10:30',
-                          style: theme.textTheme.labelLarge!.copyWith(
-                            color:
-                                theme.colorScheme.onBackground.withOpacity(.5),
-                          ),
-                        ),
-                      ],
+                    subtitle: Text(
+                      '45 Female,12 april 10:30',
+                      style: theme.textTheme.labelLarge!.copyWith(
+                        color: theme.colorScheme.onBackground.withOpacity(.5),
+                      ),
                     ),
                     trailing: const Icon(
                       Icons.done,
@@ -131,8 +130,8 @@ class DashboardLeftUi extends StatelessWidget {
               ],
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

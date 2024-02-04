@@ -4,6 +4,7 @@ import 'package:medicare_admin/res/assets/image_assets.dart';
 import 'package:medicare_admin/res/components/web_navigation_bar.dart';
 import 'package:medicare_admin/view/desktop_layout/admin_dashboard/admin_dashboard.dart';
 import 'package:medicare_admin/view/desktop_layout/appointment/admin_appointment.dart';
+import 'package:medicare_admin/view/desktop_layout/doctors/all_doctors.dart';
 
 class CustomNavigationBar extends StatefulWidget {
   const CustomNavigationBar({super.key});
@@ -19,12 +20,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
   List pages = [
     const AdminDashboard(),
     const AdminAppointment(),
-    Container(
-      width: double.infinity,
-      height: Get.height,
-      color: Colors.yellow,
-      child: const Text('kfjd'),
-    ),
+    const AllDoctors(),
     Container(
       height: Get.height,
       color: Colors.purple,
@@ -37,7 +33,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
     final theme = Theme.of(context);
     return Scaffold(
       key: scaffoldKey,
-      appBar: size.width < 600
+      appBar: size.width < 600 || size.width > 500 && size.width < 850
           ? AppBar(
               leading: IconButton(
                 onPressed: () {
@@ -62,7 +58,6 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
         children: [
           if (MediaQuery.sizeOf(context).width >= 600)
             NavigationRail(
-              minExtendedWidth: size.width * .19,
               selectedIconTheme:
                   IconThemeData(color: theme.colorScheme.onPrimary),
               selectedLabelTextStyle: theme.textTheme.titleLarge!.copyWith(
@@ -72,7 +67,6 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
                 color: theme.colorScheme.onPrimaryContainer.withOpacity(.6),
               ),
               indicatorColor: theme.colorScheme.primary,
-              extended: true,
               onDestinationSelected: (value) {
                 setState(() {
                   currenIndex = value;

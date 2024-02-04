@@ -18,7 +18,9 @@ class LoginViewContent extends StatelessWidget {
       children: [
         if (size.width > 600)
           SizedBox(
-            width: size.width * .45,
+            width: size.width > 500 && size.width < 850
+                ? size.width
+                : size.width * .45,
             child: Text(
               loginViewModel.isAdmin.value
                   ? "Welcome back to the Medicare Administration panel!"
@@ -27,12 +29,17 @@ class LoginViewContent extends StatelessWidget {
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
+              textAlign: size.width > 500 && size.width < 850
+                  ? TextAlign.center
+                  : TextAlign.left,
             ),
           ),
         const Gap(20),
         if (size.width > 600)
           SizedBox(
-            width: size.width * .45,
+            width: size.width > 500 && size.width < 850
+                ? size.width
+                : size.width * .45,
             child: Text(
               "You're at the helm of facilitating convenient healthcare access for countless users. Let's take a quick look at the current landscape",
               style: theme.textTheme.bodyLarge!.copyWith(
@@ -42,6 +49,9 @@ class LoginViewContent extends StatelessWidget {
           ),
         const Gap(20),
         Row(
+          mainAxisAlignment: size.width > 500 && size.width < 850
+              ? MainAxisAlignment.center
+              : MainAxisAlignment.start,
           children: [
             CustomButton(
               isIcon: true,
@@ -64,6 +74,7 @@ class LoginViewContent extends StatelessWidget {
             ),
           ],
         ),
+        if (size.width > 500 && size.width < 850) const Gap(20)
       ],
     );
   }

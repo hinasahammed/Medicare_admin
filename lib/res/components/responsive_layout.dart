@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medicare_admin/view/desktop_layout/desktop_layout.dart';
 import 'package:medicare_admin/view/mobile_layout/mobile_layout.dart';
+import 'package:medicare_admin/view/tablet_layout/tablet_layout.dart';
 
 class ResponsiveLayout extends StatelessWidget {
   const ResponsiveLayout({super.key});
@@ -8,8 +9,10 @@ class ResponsiveLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
-      if (constraints.maxWidth < 600) {
+      if (constraints.maxWidth < 500) {
         return const MobileLayout();
+      } else if (constraints.maxWidth > 500 && constraints.maxWidth < 850) {
+        return const TabletLayout();
       } else {
         return const DesktopLayout();
       }

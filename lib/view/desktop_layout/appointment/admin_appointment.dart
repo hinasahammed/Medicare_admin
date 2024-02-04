@@ -25,7 +25,6 @@ class AdminAppointment extends StatelessWidget {
             ),
             const Gap(15),
             Container(
-              width: double.infinity,
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -35,46 +34,44 @@ class AdminAppointment extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      child: Row(
-                        children: [
-                          const Icon(
-                            Icons.event,
-                            size: 50,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Appointments',
-                                style: theme.textTheme.labelLarge!.copyWith(
-                                  color: theme.colorScheme.onBackground
-                                      .withOpacity(.6),
-                                ),
+                    Row(
+                      children: [
+                        const Icon(
+                          Icons.event,
+                          size: 50,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Appointments',
+                              style: theme.textTheme.labelLarge!.copyWith(
+                                color: theme.colorScheme.onBackground
+                                    .withOpacity(.6),
                               ),
-                              Row(
-                                children: [
-                                  Text(
-                                    '10',
-                                    style: theme.textTheme.titleLarge!.copyWith(
-                                      color: theme.colorScheme.onBackground,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  '10',
+                                  style: theme.textTheme.titleLarge!.copyWith(
+                                    color: theme.colorScheme.onBackground,
+                                    fontWeight: FontWeight.w600,
                                   ),
-                                  const Gap(5),
-                                  Text(
-                                    'Today',
-                                    style: theme.textTheme.labelLarge!.copyWith(
-                                      color: theme.colorScheme.onBackground
-                                          .withOpacity(.4),
-                                    ),
+                                ),
+                                const Gap(5),
+                                Text(
+                                  'Today',
+                                  style: theme.textTheme.labelLarge!.copyWith(
+                                    color: theme.colorScheme.onBackground
+                                        .withOpacity(.4),
                                   ),
-                                ],
-                              )
-                            ],
-                          )
-                        ],
-                      ),
+                                ),
+                              ],
+                            )
+                          ],
+                        )
+                      ],
                     ),
                     const VerticalDivider(),
                     Container(

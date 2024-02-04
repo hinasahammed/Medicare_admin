@@ -34,7 +34,9 @@ class LoginViewForm extends StatelessWidget {
                 controller: loginViewModel.flipCardController,
                 front: Container(
                   padding: const EdgeInsets.all(12),
-                  width: size.width < 600 ? size.width : size.width * .3,
+                  width: size.width < 600 || size.width < 850
+                      ? size.width
+                      : size.width * .3,
                   height: size.height * .6,
                   decoration: BoxDecoration(
                     color: Colors.white.withOpacity(.2),

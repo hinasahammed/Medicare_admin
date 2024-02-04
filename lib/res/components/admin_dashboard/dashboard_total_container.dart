@@ -16,7 +16,6 @@ class DashboardTotalContainer extends StatelessWidget {
 
     final theme = Theme.of(context);
     return Container(
-      width: size.width * .15,
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
