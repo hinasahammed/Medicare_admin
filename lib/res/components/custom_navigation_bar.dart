@@ -5,6 +5,8 @@ import 'package:medicare_admin/res/components/web_navigation_bar.dart';
 import 'package:medicare_admin/view/desktop_layout/admin_dashboard/admin_dashboard.dart';
 import 'package:medicare_admin/view/desktop_layout/appointment/admin_appointment.dart';
 import 'package:medicare_admin/view/desktop_layout/doctors/all_doctors.dart';
+import 'package:medicare_admin/viewModel/controller/admin_controller.dart';
+import 'package:medicare_admin/viewModel/controller/doctor_controller.dart';
 
 class CustomNavigationBar extends StatefulWidget {
   const CustomNavigationBar({super.key});
@@ -27,13 +29,23 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
       child: const Text('kfjd'),
     ),
   ];
+
+  final doctorViewModel = Get.put(DoctorViewModel());
+
+  @override
+  void initState() {
+    super.initState();
+    doctorViewModel.getAllDoctor();
+  }
+
   @override
   Widget build(BuildContext context) {
+    final adminViewModel = Get.put(AdminViewModel());
     final size = MediaQuery.sizeOf(context);
     final theme = Theme.of(context);
     return Scaffold(
       key: scaffoldKey,
-      appBar: size.width < 600 || size.width > 500 && size.width < 850
+      appBar: size.width < 600 || size.width > 350 && size.width < 850
           ? AppBar(
               leading: IconButton(
                 onPressed: () {
@@ -53,6 +65,14 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
                   color: theme.colorScheme.onPrimaryContainer,
                 ),
               ),
+              actions: [
+                IconButton(
+                  onPressed: () {
+                    adminViewModel.adminLogout();
+                  },
+                  icon: const Icon(Icons.logout),
+                ),
+              ],
             ),
       body: Row(
         children: [

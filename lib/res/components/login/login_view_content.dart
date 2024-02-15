@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:medicare_admin/res/components/custom_button.dart';
-import 'package:medicare_admin/viewModel/login_view_model.dart';
+import 'package:medicare_admin/viewModel/controller/admin_controller.dart';
 
 class LoginViewContent extends StatelessWidget {
   const LoginViewContent({super.key});
@@ -11,14 +11,14 @@ class LoginViewContent extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
 
-    final loginViewModel = Get.put(LoginViewModel());
+    final loginViewModel = Get.put(AdminViewModel());
     final theme = Theme.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (size.width > 600)
           SizedBox(
-            width: size.width > 500 && size.width < 850
+            width: size.width > 350 && size.width < 850
                 ? size.width
                 : size.width * .45,
             child: Text(
@@ -29,7 +29,7 @@ class LoginViewContent extends StatelessWidget {
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
-              textAlign: size.width > 500 && size.width < 850
+              textAlign: size.width > 350 && size.width < 850
                   ? TextAlign.center
                   : TextAlign.left,
             ),
@@ -37,7 +37,7 @@ class LoginViewContent extends StatelessWidget {
         const Gap(20),
         if (size.width > 600)
           SizedBox(
-            width: size.width > 500 && size.width < 850
+            width: size.width > 350 && size.width < 850
                 ? size.width
                 : size.width * .45,
             child: Text(
@@ -49,7 +49,7 @@ class LoginViewContent extends StatelessWidget {
           ),
         const Gap(20),
         Row(
-          mainAxisAlignment: size.width > 500 && size.width < 850
+          mainAxisAlignment: size.width > 350 && size.width < 850
               ? MainAxisAlignment.center
               : MainAxisAlignment.start,
           children: [
@@ -74,7 +74,7 @@ class LoginViewContent extends StatelessWidget {
             ),
           ],
         ),
-        if (size.width > 500 && size.width < 850) const Gap(20)
+        if (size.width > 350 && size.width < 850) const Gap(20)
       ],
     );
   }

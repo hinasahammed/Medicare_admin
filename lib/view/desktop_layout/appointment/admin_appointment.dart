@@ -6,8 +6,6 @@ class AdminAppointment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.sizeOf(context);
-
     final theme = Theme.of(context);
     return Scaffold(
       backgroundColor: const Color(0xffF2F7FF),
@@ -74,130 +72,124 @@ class AdminAppointment extends StatelessWidget {
                       ],
                     ),
                     const VerticalDivider(),
-                    Container(
-                      child: Row(
-                        children: [
-                          const Icon(
-                            Icons.warning,
-                            size: 50,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Urgent',
-                                style: theme.textTheme.labelLarge!.copyWith(
-                                  color: theme.colorScheme.onBackground
-                                      .withOpacity(.6),
-                                ),
+                    Row(
+                      children: [
+                        const Icon(
+                          Icons.warning,
+                          size: 50,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Urgent',
+                              style: theme.textTheme.labelLarge!.copyWith(
+                                color: theme.colorScheme.onBackground
+                                    .withOpacity(.6),
                               ),
-                              Row(
-                                children: [
-                                  Text(
-                                    '10',
-                                    style: theme.textTheme.titleLarge!.copyWith(
-                                      color: theme.colorScheme.onBackground,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  '10',
+                                  style: theme.textTheme.titleLarge!.copyWith(
+                                    color: theme.colorScheme.onBackground,
+                                    fontWeight: FontWeight.w600,
                                   ),
-                                  const Gap(5),
-                                  Text(
-                                    'Today',
-                                    style: theme.textTheme.labelLarge!.copyWith(
-                                      color: theme.colorScheme.onBackground
-                                          .withOpacity(.4),
-                                    ),
+                                ),
+                                const Gap(5),
+                                Text(
+                                  'Today',
+                                  style: theme.textTheme.labelLarge!.copyWith(
+                                    color: theme.colorScheme.onBackground
+                                        .withOpacity(.4),
                                   ),
-                                ],
-                              )
-                            ],
-                          )
-                        ],
-                      ),
+                                ),
+                              ],
+                            )
+                          ],
+                        )
+                      ],
                     ),
                     const VerticalDivider(),
-                    Container(
-                      child: Row(
-                        children: [
-                          const Icon(
-                            Icons.cancel,
-                            size: 50,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Cancelled',
-                                style: theme.textTheme.labelLarge!.copyWith(
-                                  color: theme.colorScheme.onBackground
-                                      .withOpacity(.6),
-                                ),
+                    Row(
+                      children: [
+                        const Icon(
+                          Icons.cancel,
+                          size: 50,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Cancelled',
+                              style: theme.textTheme.labelLarge!.copyWith(
+                                color: theme.colorScheme.onBackground
+                                    .withOpacity(.6),
                               ),
-                              Row(
-                                children: [
-                                  Text(
-                                    '10',
-                                    style: theme.textTheme.titleLarge!.copyWith(
-                                      color: theme.colorScheme.onBackground,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  '10',
+                                  style: theme.textTheme.titleLarge!.copyWith(
+                                    color: theme.colorScheme.onBackground,
+                                    fontWeight: FontWeight.w600,
                                   ),
-                                  const Gap(5),
-                                  Text(
-                                    'Today',
-                                    style: theme.textTheme.labelLarge!.copyWith(
-                                      color: theme.colorScheme.onBackground
-                                          .withOpacity(.4),
-                                    ),
+                                ),
+                                const Gap(5),
+                                Text(
+                                  'Today',
+                                  style: theme.textTheme.labelLarge!.copyWith(
+                                    color: theme.colorScheme.onBackground
+                                        .withOpacity(.4),
                                   ),
-                                ],
-                              )
-                            ],
-                          )
-                        ],
-                      ),
+                                ),
+                              ],
+                            )
+                          ],
+                        )
+                      ],
                     ),
                     const VerticalDivider(),
-                    Container(
-                      child: Row(
-                        children: [
-                          const Icon(
-                            Icons.check_circle,
-                            size: 50,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Completed',
-                                style: theme.textTheme.labelLarge!.copyWith(
-                                  color: theme.colorScheme.onBackground
-                                      .withOpacity(.6),
-                                ),
+                    Row(
+                      children: [
+                        const Icon(
+                          Icons.check_circle,
+                          size: 50,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Completed',
+                              style: theme.textTheme.labelLarge!.copyWith(
+                                color: theme.colorScheme.onBackground
+                                    .withOpacity(.6),
                               ),
-                              Row(
-                                children: [
-                                  Text(
-                                    '10',
-                                    style: theme.textTheme.titleLarge!.copyWith(
-                                      color: theme.colorScheme.onBackground,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  '10',
+                                  style: theme.textTheme.titleLarge!.copyWith(
+                                    color: theme.colorScheme.onBackground,
+                                    fontWeight: FontWeight.w600,
                                   ),
-                                  const Gap(5),
-                                  Text(
-                                    'Today',
-                                    style: theme.textTheme.labelLarge!.copyWith(
-                                      color: theme.colorScheme.onBackground
-                                          .withOpacity(.4),
-                                    ),
+                                ),
+                                const Gap(5),
+                                Text(
+                                  'Today',
+                                  style: theme.textTheme.labelLarge!.copyWith(
+                                    color: theme.colorScheme.onBackground
+                                        .withOpacity(.4),
                                   ),
-                                ],
-                              )
-                            ],
-                          )
-                        ],
-                      ),
+                                ),
+                              ],
+                            )
+                          ],
+                        )
+                      ],
                     ),
                   ],
                 ),

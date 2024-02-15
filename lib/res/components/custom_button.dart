@@ -5,12 +5,14 @@ class CustomButton extends StatelessWidget {
   final String btnText;
   final bool isIcon;
   final IconData? icon;
+  final bool isLoading;
   const CustomButton({
     super.key,
     required this.onPressed,
     required this.btnText,
     this.isIcon = false,
     this.icon,
+    this.isLoading = false,
   });
 
   @override
@@ -26,24 +28,32 @@ class CustomButton extends StatelessWidget {
               backgroundColor: theme.colorScheme.primary,
             ),
             onPressed: onPressed,
-            label: Text(
-              btnText,
-              style: theme.textTheme.labelLarge!.copyWith(
-                color: theme.colorScheme.onPrimary,
-              ),
-            ),
+            label: isLoading
+                ? CircularProgressIndicator(
+                    color: theme.colorScheme.onPrimary,
+                  )
+                : Text(
+                    btnText,
+                    style: theme.textTheme.labelLarge!.copyWith(
+                      color: theme.colorScheme.onPrimary,
+                    ),
+                  ),
           )
         : ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: theme.colorScheme.primary,
             ),
             onPressed: onPressed,
-            child: Text(
-              btnText,
-              style: theme.textTheme.labelLarge!.copyWith(
-                color: theme.colorScheme.onPrimary,
-              ),
-            ),
+            child: isLoading
+                ? CircularProgressIndicator(
+                    color: theme.colorScheme.onPrimary,
+                  )
+                : Text(
+                    btnText,
+                    style: theme.textTheme.labelLarge!.copyWith(
+                      color: theme.colorScheme.onPrimary,
+                    ),
+                  ),
           );
   }
 }

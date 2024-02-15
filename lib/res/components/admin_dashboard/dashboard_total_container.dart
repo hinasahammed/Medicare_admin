@@ -12,8 +12,6 @@ class DashboardTotalContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.sizeOf(context);
-
     final theme = Theme.of(context);
     return Container(
       padding: const EdgeInsets.all(12),
@@ -25,7 +23,7 @@ class DashboardTotalContainer extends StatelessWidget {
         children: [
           Text(
             title,
-            style: theme.textTheme.titleLarge!.copyWith(
+            style: theme.textTheme.bodyLarge!.copyWith(
               color: theme.colorScheme.onBackground.withOpacity(.5),
               fontWeight: FontWeight.bold,
             ),

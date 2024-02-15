@@ -14,7 +14,7 @@ class AdminDashboard extends StatelessWidget {
       backgroundColor: const Color(0xffF2F7FF),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: size.width > 500 && size.width < 890
+        child: size.width > 350 && size.width < 890
             ? SingleChildScrollView(
                 child: Column(
                   children: [

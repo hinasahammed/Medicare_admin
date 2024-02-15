@@ -5,12 +5,16 @@ class CustomTextFormField extends StatelessWidget {
   final String labelText;
   final bool obscureText;
   final String? Function(String?)? validator;
+  final Color textColor;
+  final Color textContentColor;
   const CustomTextFormField({
     super.key,
     required this.controller,
     required this.labelText,
     this.obscureText = false,
     this.validator,
+    required this.textColor,
+    required this.textContentColor,
   });
 
   @override
@@ -22,7 +26,7 @@ class CustomTextFormField extends StatelessWidget {
       obscureText: obscureText,
       validator: validator,
       style: theme.textTheme.bodyLarge!.copyWith(
-        color: Colors.white,
+        color: textContentColor,
       ),
       decoration: InputDecoration(
         enabledBorder: OutlineInputBorder(
@@ -36,7 +40,7 @@ class CustomTextFormField extends StatelessWidget {
         fillColor: Colors.white.withOpacity(.05),
         labelText: labelText,
         labelStyle: theme.textTheme.bodyLarge!.copyWith(
-          color: Colors.white,
+          color: textColor,
         ),
       ),
     );

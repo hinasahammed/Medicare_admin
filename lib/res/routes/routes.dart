@@ -5,9 +5,14 @@ import 'package:medicare_admin/res/routes/routes_name.dart';
 import 'package:medicare_admin/view/desktop_layout/admin_dashboard/admin_dashboard.dart';
 import 'package:medicare_admin/view/desktop_layout/desktop_layout.dart';
 import 'package:medicare_admin/view/mobile_layout/mobile_layout.dart';
+import 'package:medicare_admin/view/splash/splash_view.dart';
 
 class Routes {
   static appRoutes() => [
+        GetPage(
+          name: RoutesName.splash,
+          page: () => const SplashView(),
+        ),
         GetPage(
           name: RoutesName.responsiveLayout,
           page: () => const ResponsiveLayout(),
