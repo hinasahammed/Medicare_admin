@@ -9,4 +9,24 @@ class DoctorRepository {
     );
     return result;
   }
+  Future<dynamic> changeDoctorAvailability(dynamic data) async {
+    var result = await _api.postApi(
+      AppUrl.updateAvailability,
+      data,
+    );
+    return result;
+  }
+  Future<dynamic> addDoctor(dynamic data) async {
+    var result = await _api.postApi(
+      AppUrl.addDoctor,
+      data,
+    );
+    return result;
+  }
+  Future<dynamic> deleteDoctor(String doctorName) async {
+    var result = await _api.deleteApi(
+      'http://192.168.0.104:3000/doctors/$doctorName',
+    );
+    return result;
+  }
 }

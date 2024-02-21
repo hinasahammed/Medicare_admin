@@ -7,6 +7,7 @@ import 'package:medicare_admin/models/doctor_model/doctor_model.dart';
 import 'package:medicare_admin/res/app_url/app_url.dart';
 import 'package:medicare_admin/res/repository/doctor_repository.dart';
 import 'package:http/http.dart' as http;
+import 'package:medicare_admin/utils/utils.dart';
 
 class DoctorViewModel extends GetxController {
   final _repo = DoctorRepository();
@@ -16,6 +17,7 @@ class DoctorViewModel extends GetxController {
   final qualificationController = TextEditingController().obs;
   final workingHourController = TextEditingController().obs;
   final feesController = TextEditingController().obs;
+  final searchController = TextEditingController().obs;
   RxList<DoctorModel> allDoctorsList = <DoctorModel>[].obs;
   RxString specialization = ''.obs;
   Rx<File> selectedImage = File('').obs;
@@ -50,25 +52,47 @@ class DoctorViewModel extends GetxController {
       setReqStatusResponse(Status.completed);
       getAllDoctor();
       Get.back();
+      selectedImage.value = File('');
       userNameController.value.clear();
       qualificationController.value.clear();
       workingHourController.value.clear();
       feesController.value.clear();
     } else {
       setReqStatusResponse(Status.error);
-      print('Failed to add doctor: ${response.reasonPhrase}');
+      Utils.showSnackbar('Oops', 'Something went wrong');
     }
   }
 
   void getAllDoctor() async {
     await _repo.getAllDoctorData().then((value) {
+      allDoctorsList.clear();
       for (var element in value['doctors']) {
         allDoctorsList.add(DoctorModel.fromJson(element));
       }
     }).onError((error, stackTrace) {
       setReqStatusResponse(Status.error);
 
-      print(error);
+      Utils.showSnackbar('Oops', 'Something went wrong');
+    });
+  }
+
+  void updateAvailability(String name, bool isAvailable) async {
+    var data = {
+      "name": name,
+      "isAvailable": isAvailable,
+    };
+    await _repo.changeDoctorAvailability(data).then((value) {
+      getAllDoctor();
+    }).onError((error, stackTrace) {
+      Utils.showSnackbar('Oops', 'Something got problem when updating');
+    });
+  }
+
+  void deleteDoctor(String doctorName) async {
+    await _repo.deleteDoctor(doctorName).then((value) {
+      getAllDoctor();
+    }).onError((error, stackTrace) {
+      Utils.showSnackbar('Oops', 'Something got problem when deleting');
     });
   }
 }

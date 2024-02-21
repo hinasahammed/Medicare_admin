@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:medicare_admin/data/response/status.dart';
 import 'package:medicare_admin/res/repository/admin_repository.dart';
 import 'package:medicare_admin/res/routes/routes_name.dart';
+import 'package:medicare_admin/utils/utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AdminViewModel extends GetxController {
@@ -44,7 +45,7 @@ class AdminViewModel extends GetxController {
         });
       }
       if (value['success'] == false) {
-        print('Invalid admin credentials');
+        Utils.showSnackbar('Oops', 'Invalid Credentials');
       }
     }).onError((error, stackTrace) {
       setReqStatusResponse(Status.error);

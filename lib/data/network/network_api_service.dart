@@ -50,4 +50,20 @@ class NetworkApiService extends BaseApiService {
       throw RequestTimeoutException('Time out');
     }
   }
+
+  @override
+  Future deleteApi(String url) async {
+    dynamic responseJson;
+    try {
+      final response = await http.delete(
+        Uri.parse(url),
+      );
+       responseJson = returnResponse(response);
+      return responseJson;
+    } on SocketException {
+      throw const SocketException('No internet');
+    } on RequestTimeoutException {
+      throw RequestTimeoutException('Time out');
+    }
+  }
 }

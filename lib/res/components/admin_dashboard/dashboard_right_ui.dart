@@ -7,8 +7,6 @@ class DashboardRightUi extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.sizeOf(context);
-
     final theme = Theme.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -21,7 +19,6 @@ class DashboardRightUi extends StatelessWidget {
           ),
         ),
         Container(
-          height: size.height * .7,
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
             color: Colors.white,

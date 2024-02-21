@@ -7,6 +7,7 @@ class CustomTextFormField extends StatelessWidget {
   final String? Function(String?)? validator;
   final Color textColor;
   final Color textContentColor;
+  final TextInputType? keyBoardtype;
   const CustomTextFormField({
     super.key,
     required this.controller,
@@ -14,7 +15,7 @@ class CustomTextFormField extends StatelessWidget {
     this.obscureText = false,
     this.validator,
     required this.textColor,
-    required this.textContentColor,
+    required this.textContentColor, this.keyBoardtype,
   });
 
   @override
@@ -24,6 +25,7 @@ class CustomTextFormField extends StatelessWidget {
     return TextFormField(
       controller: controller,
       obscureText: obscureText,
+      keyboardType: keyBoardtype,
       validator: validator,
       style: theme.textTheme.bodyLarge!.copyWith(
         color: textContentColor,

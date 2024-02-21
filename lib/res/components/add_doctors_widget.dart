@@ -175,6 +175,7 @@ class _AddDoctorsWidgetState extends State<AddDoctorsWidget> {
                                 ),
                                 const Gap(10),
                                 CustomTextFormField(
+                                  keyBoardtype: TextInputType.number,
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
                                       return 'Fees is empty';

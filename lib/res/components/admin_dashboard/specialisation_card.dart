@@ -13,7 +13,6 @@ class SpecialisationCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Card(
-      margin: const EdgeInsets.all(10),
       child: ListTile(
         leading: CircleAvatar(
           backgroundImage: AssetImage(image),
