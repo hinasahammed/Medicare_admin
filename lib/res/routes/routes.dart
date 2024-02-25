@@ -1,8 +1,9 @@
 import 'package:get/get.dart';
-import 'package:medicare_admin/res/components/custom_navigation_bar.dart';
+import 'package:medicare_admin/res/components/admin_custom_navigation_bar.dart';
+import 'package:medicare_admin/res/components/doctor_custom_navigation_bar.dart';
 import 'package:medicare_admin/res/components/responsive_layout.dart';
 import 'package:medicare_admin/res/routes/routes_name.dart';
-import 'package:medicare_admin/view/desktop_layout/admin_dashboard/admin_dashboard.dart';
+import 'package:medicare_admin/view/desktop_layout/admin/admin_dashboard/admin_dashboard.dart';
 import 'package:medicare_admin/view/desktop_layout/desktop_layout.dart';
 import 'package:medicare_admin/view/mobile_layout/mobile_layout.dart';
 import 'package:medicare_admin/view/splash/splash_view.dart';
@@ -26,8 +27,12 @@ class Routes {
           page: () => const MobileLayout(),
         ),
         GetPage(
-          name: RoutesName.navigationBar,
-          page: () => const CustomNavigationBar(),
+          name: RoutesName.adminNavigationBar,
+          page: () => const AdminCustomNavigationBar(),
+        ),
+        GetPage(
+          name: RoutesName.doctorNavigationBar,
+          page: () => const DoctorCustomNavigationBar(),
         ),
         GetPage(
           name: RoutesName.adminHome,

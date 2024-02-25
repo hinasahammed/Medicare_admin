@@ -19,11 +19,16 @@ class _SplashViewState extends State<SplashView> {
 
   void isLogin() async {
     final pref = await SharedPreferences.getInstance();
-    var token = pref.getString('Admin_Login_token');
+    var admintoken = pref.getString('Admin_Login_token');
+    var doctortoken = pref.getString('doctor_token');
 
-    if (token != null) {
+    if (admintoken != null) {
       Get.offAllNamed(
-        RoutesName.navigationBar,
+        RoutesName.adminNavigationBar,
+      );
+    } else if (doctortoken != null) {
+      Get.offAllNamed(
+        RoutesName.doctorNavigationBar,
       );
     } else {
       Get.offAllNamed(

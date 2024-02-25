@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:medicare_admin/res/components/admin_dashboard/dashboard_total_container.dart';
-import 'package:medicare_admin/viewModel/controller/doctor_controller.dart';
+import 'package:medicare_admin/viewModel/controller/admin_viewmodel.dart';
 
-class DashboardLeftUi extends StatelessWidget {
-  const DashboardLeftUi({super.key});
+class AdminDashboardLeftUi extends StatelessWidget {
+  const AdminDashboardLeftUi({super.key});
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
     final theme = Theme.of(context);
-    final doctorViewModel = Get.put(DoctorViewModel());
+    final adminViewModel = Get.put(AdminViewModel());
     return Obx(
       () => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,7 +30,7 @@ class DashboardLeftUi extends StatelessWidget {
               DashboardTotalContainer(
                 color: const Color(0xffFFA900),
                 title: 'Total\n Doctors',
-                count: doctorViewModel.allDoctorsList.length.toString(),
+                count: adminViewModel.allDoctorsList.length.toString(),
               ),
               const Gap(10),
               const DashboardTotalContainer(
@@ -57,6 +57,7 @@ class DashboardLeftUi extends StatelessWidget {
             ),
           const Gap(15),
           Container(
+            height: size.height * .6,
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               color: Colors.white,

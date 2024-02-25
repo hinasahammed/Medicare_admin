@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:medicare_admin/res/components/admin_dashboard/dashboard_left_ui.dart';
-import 'package:medicare_admin/res/components/admin_dashboard/dashboard_right_ui.dart';
+import 'package:medicare_admin/res/components/admin_dashboard/admin_dashboard_left_ui.dart';
+import 'package:medicare_admin/res/components/admin_dashboard/admin_dashboard_right_ui.dart';
 
 class AdminDashboard extends StatelessWidget {
   const AdminDashboard({super.key});
@@ -17,9 +17,9 @@ class AdminDashboard extends StatelessWidget {
             ? const SingleChildScrollView(
                 child: Column(
                   children: [
-                    DashboardLeftUi(),
+                    AdminDashboardLeftUi(),
                     Gap(20),
-                    DashboardRightUi(),
+                    AdminDashboardRightUi(),
                   ],
                 ),
               )
@@ -27,12 +27,12 @@ class AdminDashboard extends StatelessWidget {
                 children: [
                   Expanded(
                     flex: 3,
-                    child: DashboardLeftUi(),
+                    child: AdminDashboardLeftUi(),
                   ),
                   Gap(10),
                   Expanded(
                     flex: 1,
-                    child: DashboardRightUi(),
+                    child: AdminDashboardRightUi(),
                   ),
                 ],
               ),

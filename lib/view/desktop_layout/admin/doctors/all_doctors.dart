@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:medicare_admin/res/components/all_doctor_card.dart';
-import 'package:medicare_admin/viewModel/controller/doctor_controller.dart';
+import 'package:medicare_admin/viewModel/controller/admin_viewmodel.dart';
 import 'package:medicare_admin/viewModel/services/admin_service.dart';
 
 class AllDoctors extends StatelessWidget {
@@ -12,7 +12,7 @@ class AllDoctors extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final size = MediaQuery.sizeOf(context);
-    final doctorViewModel = Get.put(DoctorViewModel());
+    final adminViewModel = Get.put(AdminViewModel());
 
     return Scaffold(
       backgroundColor: const Color(0xffF2F7FF),
@@ -51,7 +51,7 @@ class AllDoctors extends StatelessWidget {
                 const Gap(20),
                 Expanded(
                   child: SearchBar(
-                    controller: doctorViewModel.searchController.value,
+                    controller: adminViewModel.searchController.value,
                     hintText: 'Search',
                     trailing: const [
                       Icon(Icons.search),

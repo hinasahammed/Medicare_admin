@@ -1,9 +1,11 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:medicare_admin/models/doctor_model/doctor_model.dart';
 import 'package:medicare_admin/res/assets/image_assets.dart';
-import 'package:medicare_admin/viewModel/controller/doctor_controller.dart';
+import 'package:medicare_admin/utils/utils.dart';
+import 'package:medicare_admin/viewModel/controller/admin_viewmodel.dart';
 
 class DoctorCard extends StatelessWidget {
   final DoctorModel doctorList;
@@ -11,7 +13,7 @@ class DoctorCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final doctorViewModel = Get.put(DoctorViewModel());
+    final adminViewModel = Get.put(AdminViewModel());
     final size = MediaQuery.sizeOf(context);
     final theme = Theme.of(context);
     return Stack(
@@ -71,8 +73,8 @@ class DoctorCard extends StatelessWidget {
                             children: [
                               InkWell(
                                 onTap: () {
-                                  doctorViewModel
-                                      .deleteDoctor(doctorList.name ?? '');
+                                  adminViewModel.deleteDoctor(
+                                      doctorList.name ?? '', context);
                                 },
                                 child: SizedBox(
                                   width: size.width * .08,
@@ -82,11 +84,13 @@ class DoctorCard extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              SizedBox(
-                                width: size.width * .08,
-                                child: Image.asset(
-                                  ImageAssets.editButton,
-                                  fit: BoxFit.cover,
+                              InkWell(
+                                child: SizedBox(
+                                  width: size.width * .08,
+                                  child: Image.asset(
+                                    ImageAssets.editButton,
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
                               Transform.scale(
@@ -94,9 +98,10 @@ class DoctorCard extends StatelessWidget {
                                 child: Switch(
                                   value: doctorList.isAvailable ?? true,
                                   onChanged: (newValue) {
-                                    doctorViewModel.updateAvailability(
+                                    adminViewModel.updateAvailability(
                                       doctorList.name ?? '',
                                       newValue,
+                                      context,
                                     );
                                   },
                                 ),
@@ -141,7 +146,16 @@ class DoctorCard extends StatelessWidget {
               children: [
                 InkWell(
                   onTap: () {
-                    doctorViewModel.deleteDoctor(doctorList.name ?? '');
+                    Utils.showDialog(
+                      context,
+                      () {
+                        adminViewModel.deleteDoctor(
+                            doctorList.name ?? '', context);
+                      },
+                      DialogType.question,
+                      'Delete',
+                      'Are you sure want to delete?',
+                    );
                   },
                   child: SizedBox(
                     width: size.width * .032,
@@ -152,11 +166,14 @@ class DoctorCard extends StatelessWidget {
                   ),
                 ),
                 const Gap(10),
-                SizedBox(
-                  width: size.width * .032,
-                  child: Image.asset(
-                    ImageAssets.editButton,
-                    fit: BoxFit.cover,
+                InkWell(
+                  onTap: () {},
+                  child: SizedBox(
+                    width: size.width * .032,
+                    child: Image.asset(
+                      ImageAssets.editButton,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
                 const Gap(10),
@@ -165,9 +182,10 @@ class DoctorCard extends StatelessWidget {
                   child: Switch(
                     value: doctorList.isAvailable ?? true,
                     onChanged: (newValue) {
-                      doctorViewModel.updateAvailability(
+                      adminViewModel.updateAvailability(
                         doctorList.name ?? '',
                         newValue,
+                        context,
                       );
                     },
                   ),

@@ -1,21 +1,23 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medicare_admin/res/assets/image_assets.dart';
 import 'package:medicare_admin/res/components/web_navigation_bar.dart';
-import 'package:medicare_admin/view/desktop_layout/admin_dashboard/admin_dashboard.dart';
-import 'package:medicare_admin/view/desktop_layout/appointment/admin_appointment.dart';
-import 'package:medicare_admin/view/desktop_layout/doctors/all_doctors.dart';
-import 'package:medicare_admin/viewModel/controller/admin_controller.dart';
-import 'package:medicare_admin/viewModel/controller/doctor_controller.dart';
+import 'package:medicare_admin/utils/utils.dart';
+import 'package:medicare_admin/view/desktop_layout/admin/admin_dashboard/admin_dashboard.dart';
+import 'package:medicare_admin/view/desktop_layout/admin/appointment/admin_appointment.dart';
+import 'package:medicare_admin/view/desktop_layout/admin/doctors/all_doctors.dart';
+import 'package:medicare_admin/viewModel/controller/admin_viewmodel.dart';
 
-class CustomNavigationBar extends StatefulWidget {
-  const CustomNavigationBar({super.key});
+class AdminCustomNavigationBar extends StatefulWidget {
+  const AdminCustomNavigationBar({super.key});
 
   @override
-  State<CustomNavigationBar> createState() => _CustomNavigationBarState();
+  State<AdminCustomNavigationBar> createState() =>
+      _AdminCustomNavigationBarState();
 }
 
-class _CustomNavigationBarState extends State<CustomNavigationBar> {
+class _AdminCustomNavigationBarState extends State<AdminCustomNavigationBar> {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   int currenIndex = 0;
@@ -30,12 +32,12 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
     ),
   ];
 
-  final doctorViewModel = Get.put(DoctorViewModel());
+  final adminViewModel = Get.put(AdminViewModel());
 
   @override
   void initState() {
     super.initState();
-    doctorViewModel.getAllDoctor();
+    adminViewModel.getAllDoctor(context);
   }
 
   @override
@@ -68,7 +70,15 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
               actions: [
                 IconButton(
                   onPressed: () {
-                    adminViewModel.adminLogout();
+                    Utils.showDialog(
+                      context,
+                      () {
+                        adminViewModel.adminLogout();
+                      },
+                      DialogType.question,
+                      'Logout',
+                      'Are you sure want to logout?',
+                    );
                   },
                   icon: const Icon(Icons.logout),
                 ),

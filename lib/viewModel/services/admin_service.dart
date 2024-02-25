@@ -1,15 +1,16 @@
 import 'dart:io';
 
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:medicare_admin/res/components/add_doctors_widget.dart';
 import 'package:medicare_admin/res/components/admin_doctors_widget_mobile.dart';
 import 'package:medicare_admin/utils/utils.dart';
-import 'package:medicare_admin/viewModel/controller/doctor_controller.dart';
+import 'package:medicare_admin/viewModel/controller/admin_viewmodel.dart';
 
 class AdminService {
-  final doctorViewModel = Get.put(DoctorViewModel());
+  final adminViewModel = Get.put(AdminViewModel());
 
   static void addDoctor(BuildContext context) {
     showDialog(
@@ -37,18 +38,25 @@ class AdminService {
     );
   }
 
-  void pickImage() async {
+  void pickImage(BuildContext context) async {
     final imagePick = await ImagePicker().pickImage(
       source: ImageSource.gallery,
       imageQuality: 50,
     );
 
     if (imagePick == null) {
-      return Utils.showSnackbar('Pick image', 'You have to pick an image');
+      if (context.mounted) {
+        return Utils.shownotif(
+          'Pick image',
+          'You have to pick an image',
+          context,
+          ContentType.warning,
+        );
+      }
     }
 
-    final imageTemp = File(imagePick.path);
+    final imageTemp = File(imagePick!.path);
 
-    doctorViewModel.selectedImage.value = imageTemp;
+    adminViewModel.selectedImage.value = imageTemp;
   }
 }

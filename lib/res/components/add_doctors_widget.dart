@@ -5,7 +5,7 @@ import 'package:medicare_admin/data/response/status.dart';
 import 'package:medicare_admin/res/assets/image_assets.dart';
 import 'package:medicare_admin/res/components/custom_button.dart';
 import 'package:medicare_admin/res/components/custom_textformfield.dart';
-import 'package:medicare_admin/viewModel/controller/doctor_controller.dart';
+import 'package:medicare_admin/viewModel/controller/admin_viewmodel.dart';
 import 'package:medicare_admin/viewModel/services/admin_service.dart';
 
 class AddDoctorsWidget extends StatefulWidget {
@@ -17,7 +17,7 @@ class AddDoctorsWidget extends StatefulWidget {
 
 class _AddDoctorsWidgetState extends State<AddDoctorsWidget> {
   final _formKey = GlobalKey<FormState>();
-  final doctorViewModel = Get.put(DoctorViewModel());
+  final adminViewModel = Get.put(AdminViewModel());
 
   @override
   Widget build(BuildContext context) {
@@ -53,14 +53,14 @@ class _AddDoctorsWidgetState extends State<AddDoctorsWidget> {
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(15),
                                 image: DecorationImage(
-                                  image: doctorViewModel
+                                  image: adminViewModel
                                               .selectedImage.value.path ==
                                           ''
                                       ? const AssetImage(
                                           'assets/images/default_image.png',
                                         )
                                       : FileImage(
-                                          doctorViewModel.selectedImage.value,
+                                          adminViewModel.selectedImage.value,
                                         ) as ImageProvider,
                                   fit: BoxFit.cover,
                                 ),
@@ -72,7 +72,7 @@ class _AddDoctorsWidgetState extends State<AddDoctorsWidget> {
                               child: Card(
                                 child: IconButton(
                                   onPressed: () {
-                                    AdminService().pickImage();
+                                    AdminService().pickImage(context);
                                   },
                                   icon: const Icon(Icons.add),
                                 ),
@@ -98,7 +98,7 @@ class _AddDoctorsWidgetState extends State<AddDoctorsWidget> {
                                 DropdownMenu(
                                   onSelected: (value) {
                                     if (value != null) {
-                                      doctorViewModel.specialization.value =
+                                      adminViewModel.specialization.value =
                                           value;
                                     }
                                   },
@@ -185,7 +185,7 @@ class _AddDoctorsWidgetState extends State<AddDoctorsWidget> {
                                   textContentColor: theme.colorScheme.primary,
                                   textColor: Colors.black,
                                   controller:
-                                      doctorViewModel.feesController.value,
+                                      adminViewModel.feesController.value,
                                   labelText: 'Fees',
                                 ),
                               ],
@@ -197,66 +197,116 @@ class _AddDoctorsWidgetState extends State<AddDoctorsWidget> {
                   ),
                   const Gap(10),
                   Expanded(
-                    child: Card(
-                      child: Container(
-                        height: 320,
-                        padding: const EdgeInsets.all(10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Personal information',
-                              style: theme.textTheme.bodyLarge!.copyWith(
-                                fontWeight: FontWeight.w600,
-                              ),
+                    child: Column(
+                      children: [
+                        Card(
+                          child: Container(
+                            height: size.height * .35,
+                            padding: const EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Personal information',
+                                  style: theme.textTheme.bodyLarge!.copyWith(
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                const Gap(10),
+                                CustomTextFormField(
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Name is empty';
+                                    }
+                                    return null;
+                                  },
+                                  textContentColor: theme.colorScheme.primary,
+                                  textColor: Colors.black,
+                                  controller:
+                                      adminViewModel.doctorNameController.value,
+                                  labelText: 'Name',
+                                ),
+                                const Gap(10),
+                                CustomTextFormField(
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Qualification is empty';
+                                    }
+                                    return null;
+                                  },
+                                  textContentColor: theme.colorScheme.primary,
+                                  textColor: Colors.black,
+                                  controller: adminViewModel
+                                      .qualificationController.value,
+                                  labelText: 'Qualification',
+                                ),
+                                const Gap(10),
+                                CustomTextFormField(
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Working hour is empty';
+                                    }
+                                    return null;
+                                  },
+                                  textContentColor: theme.colorScheme.primary,
+                                  textColor: Colors.black,
+                                  controller: adminViewModel
+                                      .workingHourController.value,
+                                  labelText: 'Working hour',
+                                ),
+                              ],
                             ),
-                            const Gap(10),
-                            CustomTextFormField(
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Name is empty';
-                                }
-                                return null;
-                              },
-                              textContentColor: theme.colorScheme.primary,
-                              textColor: Colors.black,
-                              controller:
-                                  doctorViewModel.userNameController.value,
-                              labelText: 'Name',
-                            ),
-                            const Gap(10),
-                            CustomTextFormField(
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Qualification is empty';
-                                }
-                                return null;
-                              },
-                              textContentColor: theme.colorScheme.primary,
-                              textColor: Colors.black,
-                              controller:
-                                  doctorViewModel.qualificationController.value,
-                              labelText: 'Qualification',
-                            ),
-                            const Gap(10),
-                            CustomTextFormField(
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Working hour is empty';
-                                }
-                                return null;
-                              },
-                              textContentColor: theme.colorScheme.primary,
-                              textColor: Colors.black,
-                              controller:
-                                  doctorViewModel.workingHourController.value,
-                              labelText: 'Working hour',
-                            ),
-                          ],
+                          ),
                         ),
-                      ),
+                        const Gap(10),
+                        Card(
+                          child: Container(
+                            height: size.height * .25,
+                            padding: const EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Credential',
+                                  style: theme.textTheme.bodyLarge!.copyWith(
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                const Gap(10),
+                                CustomTextFormField(
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'User name is empty';
+                                    }
+                                    return null;
+                                  },
+                                  textContentColor: theme.colorScheme.primary,
+                                  textColor: Colors.black,
+                                  controller:
+                                      adminViewModel.userNameController.value,
+                                  labelText: 'User name',
+                                ),
+                                const Gap(10),
+                                CustomTextFormField(
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Qualification is empty';
+                                    }
+                                    return null;
+                                  },
+                                  textContentColor: theme.colorScheme.primary,
+                                  textColor: Colors.black,
+                                  controller:
+                                      adminViewModel.passwordController.value,
+                                  labelText: 'Password',
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  )
+                  ),
                 ],
               ),
               const Gap(10),
@@ -264,12 +314,12 @@ class _AddDoctorsWidgetState extends State<AddDoctorsWidget> {
                 alignment: Alignment.bottomRight,
                 child: CustomButton(
                   isLoading:
-                      doctorViewModel.reqStatusResponse.value == Status.loading,
+                      adminViewModel.reqStatusResponse.value == Status.loading,
                   onPressed: () {
-                    if (doctorViewModel.specialization.value != '' ||
-                        doctorViewModel.specialization.value.isNotEmpty) {
+                    if (adminViewModel.specialization.value != '' ||
+                        adminViewModel.specialization.value.isNotEmpty) {
                       if (_formKey.currentState!.validate()) {
-                        doctorViewModel.addDoctorData();
+                        adminViewModel.addDoctorData(context);
                       }
                     }
                   },

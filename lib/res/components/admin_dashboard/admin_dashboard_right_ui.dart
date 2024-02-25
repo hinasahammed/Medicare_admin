@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:medicare_admin/res/assets/image_assets.dart';
 import 'package:medicare_admin/res/components/admin_dashboard/specialisation_card.dart';
 
-class DashboardRightUi extends StatelessWidget {
-  const DashboardRightUi({super.key});
+class AdminDashboardRightUi extends StatelessWidget {
+  const AdminDashboardRightUi({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -11,4 +11,5 @@ class ImageAssets {
   static const String psychiatry = 'assets/icons/psychiatry.png';
   static const String deleteButton = 'assets/icons/bin.png';
   static const String editButton = 'assets/icons/pen.png';
+  static const String doctorImage = 'assets/images/doctor_img.png';
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:medicare_admin/res/components/custom_button.dart';
-import 'package:medicare_admin/viewModel/controller/admin_controller.dart';
+import 'package:medicare_admin/viewModel/controller/admin_viewmodel.dart';
 
 class LoginViewContent extends StatelessWidget {
   const LoginViewContent({super.key});

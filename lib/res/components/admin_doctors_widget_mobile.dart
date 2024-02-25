@@ -5,7 +5,7 @@ import 'package:medicare_admin/data/response/status.dart';
 import 'package:medicare_admin/res/assets/image_assets.dart';
 import 'package:medicare_admin/res/components/custom_button.dart';
 import 'package:medicare_admin/res/components/custom_textformfield.dart';
-import 'package:medicare_admin/viewModel/controller/doctor_controller.dart';
+import 'package:medicare_admin/viewModel/controller/admin_viewmodel.dart';
 import 'package:medicare_admin/viewModel/services/admin_service.dart';
 
 class AdminDoctorsWidgetMobile extends StatefulWidget {
@@ -21,7 +21,7 @@ class _AdminDoctorsWidgetMobileState extends State<AdminDoctorsWidgetMobile> {
 
   @override
   Widget build(BuildContext context) {
-    final doctorViewModel = Get.put(DoctorViewModel());
+    final adminViewModel = Get.put(AdminViewModel());
     final theme = Theme.of(context);
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(
@@ -49,7 +49,7 @@ class _AdminDoctorsWidgetMobileState extends State<AdminDoctorsWidgetMobile> {
                   child: Card(
                     child: IconButton(
                       onPressed: () {
-                        AdminService().pickImage();
+                        AdminService().pickImage(context);
                       },
                       icon: const Icon(Icons.add),
                     ),
@@ -188,13 +188,13 @@ class _AdminDoctorsWidgetMobileState extends State<AdminDoctorsWidgetMobile> {
                     Align(
                       alignment: Alignment.bottomRight,
                       child: CustomButton(
-                        isLoading: doctorViewModel.reqStatusResponse.value ==
+                        isLoading: adminViewModel.reqStatusResponse.value ==
                             Status.loading,
                         onPressed: () {
-                          if (doctorViewModel.specialization.value != '' ||
-                              doctorViewModel.specialization.value.isNotEmpty) {
+                          if (adminViewModel.specialization.value != '' ||
+                              adminViewModel.specialization.value.isNotEmpty) {
                             if (_formKey.currentState!.validate()) {
-                              doctorViewModel.addDoctorData();
+                              adminViewModel.addDoctorData(context);
                             }
                           }
                         },

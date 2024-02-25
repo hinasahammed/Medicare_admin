@@ -6,8 +6,9 @@ import 'package:get/get.dart';
 import 'package:medicare_admin/data/response/status.dart';
 import 'package:medicare_admin/res/components/custom_button.dart';
 import 'package:medicare_admin/res/components/custom_textformfield.dart';
-import 'package:medicare_admin/viewModel/controller/admin_controller.dart';
+import 'package:medicare_admin/viewModel/controller/admin_viewmodel.dart';
 import 'package:flip_card/flip_card.dart';
+import 'package:medicare_admin/viewModel/controller/doctor_viewmodel.dart';
 
 class LoginViewForm extends StatefulWidget {
   const LoginViewForm({super.key});
@@ -24,6 +25,7 @@ class _LoginViewFormState extends State<LoginViewForm> {
     final size = MediaQuery.sizeOf(context);
 
     final adminViewModel = Get.put(AdminViewModel());
+    final doctorViewModel = Get.put(DoctorViewModel());
 
     final theme = Theme.of(context);
 
@@ -82,7 +84,9 @@ class _LoginViewFormState extends State<LoginViewForm> {
                               return null;
                             }
                           },
-                          controller: adminViewModel.userNameController.value,
+                          controller: adminViewModel.isAdmin.value
+                              ? adminViewModel.userNameController.value
+                              : doctorViewModel.doctorNameController.value,
                           labelText: 'User name',
                         ),
                         const Gap(15),
@@ -97,7 +101,9 @@ class _LoginViewFormState extends State<LoginViewForm> {
                               return null;
                             }
                           },
-                          controller: adminViewModel.passwordController.value,
+                          controller: adminViewModel.isAdmin.value
+                              ? adminViewModel.passwordController.value
+                              : doctorViewModel.passwordController.value,
                           labelText: 'Password',
                         ),
                         const Gap(25),
@@ -106,7 +112,7 @@ class _LoginViewFormState extends State<LoginViewForm> {
                               Status.loading,
                           onPressed: () {
                             if (_formkey.currentState!.validate()) {
-                              adminViewModel.adminLogin();
+                              adminViewModel.adminLogin(context);
                             }
                           },
                           btnText: 'Sign in',
@@ -154,7 +160,9 @@ class _LoginViewFormState extends State<LoginViewForm> {
                               return null;
                             }
                           },
-                          controller: adminViewModel.userNameController.value,
+                          controller: adminViewModel.isAdmin.value
+                              ? adminViewModel.userNameController.value
+                              : doctorViewModel.doctorNameController.value,
                           labelText: 'User name',
                         ),
                         const Gap(15),
@@ -169,16 +177,23 @@ class _LoginViewFormState extends State<LoginViewForm> {
                               return null;
                             }
                           },
-                          controller: adminViewModel.passwordController.value,
+                          controller: adminViewModel.isAdmin.value
+                              ? adminViewModel.passwordController.value
+                              : doctorViewModel.passwordController.value,
                           labelText: 'Password',
                         ),
                         const Gap(25),
                         CustomButton(
-                          isLoading: adminViewModel.reqStatusResponse.value ==
-                              Status.loading,
+                          isLoading: adminViewModel.isAdmin.value
+                              ? adminViewModel.reqStatusResponse.value ==
+                                  Status.loading
+                              : doctorViewModel.reqStatusResponse.value ==
+                                  Status.loading,
                           onPressed: () {
                             if (_formkey.currentState!.validate()) {
-                              adminViewModel.adminLogin();
+                              adminViewModel.isAdmin.value
+                                  ? adminViewModel.adminLogin(context)
+                                  : doctorViewModel.doctorLogin(context);
                             }
                           },
                           btnText: 'Sign in',
