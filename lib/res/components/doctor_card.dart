@@ -2,7 +2,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:medicare_admin/models/doctor_model/doctor_model.dart';
+import 'package:medicare_admin/models/all_doctor_model/doctor_model.dart';
 import 'package:medicare_admin/res/assets/image_assets.dart';
 import 'package:medicare_admin/utils/utils.dart';
 import 'package:medicare_admin/viewModel/controller/admin_viewmodel.dart';

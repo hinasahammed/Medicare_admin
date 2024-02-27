@@ -33,11 +33,17 @@ class _DoctorCustomNavigationBarState extends State<DoctorCustomNavigationBar> {
     ),
   ];
 
+  @override
+  void initState() {
+    super.initState();
+    doctorViewModel.getDoctorData(context);
+  }
+
   final adminViewModel = Get.put(AdminViewModel());
+  final doctorViewModel = Get.put(DoctorViewModel());
 
   @override
   Widget build(BuildContext context) {
-    final doctorViewModel = Get.put(DoctorViewModel());
     final size = MediaQuery.sizeOf(context);
     final theme = Theme.of(context);
     return Scaffold(

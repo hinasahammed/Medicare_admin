@@ -6,7 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medicare_admin/data/response/status.dart';
-import 'package:medicare_admin/models/doctor_model/doctor_model.dart';
+import 'package:medicare_admin/models/all_doctor_model/doctor_model.dart';
 import 'package:medicare_admin/res/app_url/app_url.dart';
 import 'package:medicare_admin/res/repository/admin_repository.dart';
 import 'package:medicare_admin/res/routes/routes_name.dart';

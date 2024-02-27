@@ -11,4 +11,10 @@ class DoctorRepository {
     );
     return result;
   }
+   Future<dynamic> getDoctorData(String doctorName) async {
+    var result = await _api.getApi(
+      AppUrl.doctorSingleData+doctorName
+    );
+    return result;
+  }
 }
