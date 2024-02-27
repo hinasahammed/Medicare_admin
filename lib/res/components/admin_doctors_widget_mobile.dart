@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:medicare_admin/data/response/status.dart';
-import 'package:medicare_admin/res/assets/image_assets.dart';
+import 'package:medicare_admin/res/assets/icons/icons_asset.dart';
 import 'package:medicare_admin/res/components/custom_button.dart';
 import 'package:medicare_admin/res/components/custom_textformfield.dart';
 import 'package:medicare_admin/viewModel/controller/admin_viewmodel.dart';
@@ -118,7 +118,7 @@ class _AdminDoctorsWidgetMobileState extends State<AdminDoctorsWidgetMobile> {
                       dropdownMenuEntries: <DropdownMenuEntry<String>>[
                         DropdownMenuEntry(
                           leadingIcon: CircleAvatar(
-                            backgroundImage: AssetImage(ImageAssets.cardio),
+                            backgroundImage: AssetImage(IconsAsset.cardio),
                           ),
                           value: 'Cardiology',
                           label: 'Cardiology',
@@ -126,21 +126,21 @@ class _AdminDoctorsWidgetMobileState extends State<AdminDoctorsWidgetMobile> {
                         DropdownMenuEntry(
                           leadingIcon: CircleAvatar(
                             backgroundImage:
-                                AssetImage(ImageAssets.dermatology),
+                                AssetImage(IconsAsset.dermatology),
                           ),
                           value: 'Dermatology',
                           label: 'Dermatology',
                         ),
                         DropdownMenuEntry(
                           leadingIcon: CircleAvatar(
-                            backgroundImage: AssetImage(ImageAssets.gastrology),
+                            backgroundImage: AssetImage(IconsAsset.gastrology),
                           ),
                           value: 'Gastroenterology',
                           label: 'Gastroenterology',
                         ),
                         DropdownMenuEntry(
                           leadingIcon: CircleAvatar(
-                            backgroundImage: AssetImage(ImageAssets.hematology),
+                            backgroundImage: AssetImage(IconsAsset.hematology),
                           ),
                           value: 'Hematology',
                           label: 'Hematology',
@@ -148,7 +148,7 @@ class _AdminDoctorsWidgetMobileState extends State<AdminDoctorsWidgetMobile> {
                         DropdownMenuEntry(
                           leadingIcon: CircleAvatar(
                             backgroundImage:
-                                AssetImage(ImageAssets.nuerologist),
+                                AssetImage(IconsAsset.nuerologist),
                           ),
                           value: 'Neurology',
                           label: 'Neurology',
@@ -156,21 +156,21 @@ class _AdminDoctorsWidgetMobileState extends State<AdminDoctorsWidgetMobile> {
                         DropdownMenuEntry(
                           leadingIcon: CircleAvatar(
                             backgroundImage:
-                                AssetImage(ImageAssets.orthopeadic),
+                                AssetImage(IconsAsset.orthopeadic),
                           ),
                           value: 'Orthopedics',
                           label: 'Orthopedics',
                         ),
                         DropdownMenuEntry(
                           leadingIcon: CircleAvatar(
-                            backgroundImage: AssetImage(ImageAssets.pediatrics),
+                            backgroundImage: AssetImage(IconsAsset.pediatrics),
                           ),
                           value: 'Pediatrics',
                           label: 'Pediatrics',
                         ),
                         DropdownMenuEntry(
                           leadingIcon: CircleAvatar(
-                            backgroundImage: AssetImage(ImageAssets.psychiatry),
+                            backgroundImage: AssetImage(IconsAsset.psychiatry),
                           ),
                           value: 'Psychiatry',
                           label: 'Psychiatry',

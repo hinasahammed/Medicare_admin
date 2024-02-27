@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:medicare_admin/res/assets/image_assets.dart';
+import 'package:medicare_admin/res/assets/images/image_assets.dart';
 import 'package:medicare_admin/res/components/login/login_view_content.dart';
 import 'package:medicare_admin/res/components/login/login_view_form.dart';
 

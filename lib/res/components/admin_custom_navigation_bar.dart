@@ -1,7 +1,7 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:medicare_admin/res/assets/image_assets.dart';
+import 'package:medicare_admin/res/assets/images/image_assets.dart';
 import 'package:medicare_admin/res/components/web_navigation_bar.dart';
 import 'package:medicare_admin/utils/utils.dart';
 import 'package:medicare_admin/view/desktop_layout/admin/admin_dashboard/admin_dashboard.dart';

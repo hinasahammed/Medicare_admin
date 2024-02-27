@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:medicare_admin/data/response/status.dart';
-import 'package:medicare_admin/res/assets/image_assets.dart';
+import 'package:medicare_admin/res/assets/icons/icons_asset.dart';
 import 'package:medicare_admin/res/components/custom_button.dart';
 import 'package:medicare_admin/res/components/custom_textformfield.dart';
 import 'package:medicare_admin/viewModel/controller/admin_viewmodel.dart';
@@ -110,7 +110,7 @@ class _AddDoctorsWidgetState extends State<AddDoctorsWidget> {
                                     DropdownMenuEntry(
                                       leadingIcon: CircleAvatar(
                                         backgroundImage:
-                                            AssetImage(ImageAssets.cardio),
+                                            AssetImage(IconsAsset.cardio),
                                       ),
                                       value: 'Cardiology',
                                       label: 'Cardiology',
@@ -118,7 +118,7 @@ class _AddDoctorsWidgetState extends State<AddDoctorsWidget> {
                                     DropdownMenuEntry(
                                       leadingIcon: CircleAvatar(
                                         backgroundImage:
-                                            AssetImage(ImageAssets.dermatology),
+                                            AssetImage(IconsAsset.dermatology),
                                       ),
                                       value: 'Dermatology',
                                       label: 'Dermatology',
@@ -126,7 +126,7 @@ class _AddDoctorsWidgetState extends State<AddDoctorsWidget> {
                                     DropdownMenuEntry(
                                       leadingIcon: CircleAvatar(
                                         backgroundImage:
-                                            AssetImage(ImageAssets.gastrology),
+                                            AssetImage(IconsAsset.gastrology),
                                       ),
                                       value: 'Gastroenterology',
                                       label: 'Gastroenterology',
@@ -134,7 +134,7 @@ class _AddDoctorsWidgetState extends State<AddDoctorsWidget> {
                                     DropdownMenuEntry(
                                       leadingIcon: CircleAvatar(
                                         backgroundImage:
-                                            AssetImage(ImageAssets.hematology),
+                                            AssetImage(IconsAsset.hematology),
                                       ),
                                       value: 'Hematology',
                                       label: 'Hematology',
@@ -142,7 +142,7 @@ class _AddDoctorsWidgetState extends State<AddDoctorsWidget> {
                                     DropdownMenuEntry(
                                       leadingIcon: CircleAvatar(
                                         backgroundImage:
-                                            AssetImage(ImageAssets.nuerologist),
+                                            AssetImage(IconsAsset.nuerologist),
                                       ),
                                       value: 'Neurology',
                                       label: 'Neurology',
@@ -150,7 +150,7 @@ class _AddDoctorsWidgetState extends State<AddDoctorsWidget> {
                                     DropdownMenuEntry(
                                       leadingIcon: CircleAvatar(
                                         backgroundImage:
-                                            AssetImage(ImageAssets.orthopeadic),
+                                            AssetImage(IconsAsset.orthopeadic),
                                       ),
                                       value: 'Orthopedics',
                                       label: 'Orthopedics',
@@ -158,7 +158,7 @@ class _AddDoctorsWidgetState extends State<AddDoctorsWidget> {
                                     DropdownMenuEntry(
                                       leadingIcon: CircleAvatar(
                                         backgroundImage:
-                                            AssetImage(ImageAssets.pediatrics),
+                                            AssetImage(IconsAsset.pediatrics),
                                       ),
                                       value: 'Pediatrics',
                                       label: 'Pediatrics',
@@ -166,7 +166,7 @@ class _AddDoctorsWidgetState extends State<AddDoctorsWidget> {
                                     DropdownMenuEntry(
                                       leadingIcon: CircleAvatar(
                                         backgroundImage:
-                                            AssetImage(ImageAssets.psychiatry),
+                                            AssetImage(IconsAsset.psychiatry),
                                       ),
                                       value: 'Psychiatry',
                                       label: 'Psychiatry',

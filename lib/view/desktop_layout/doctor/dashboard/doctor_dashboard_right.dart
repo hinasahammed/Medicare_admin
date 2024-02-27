@@ -18,60 +18,6 @@ class DoctorDashboardRight extends StatelessWidget {
 
       return Column(
         children: [
-          Expanded(
-            child: Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: const Color(
-                  0xff242831,
-                ),
-              ),
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      'Profile',
-                      style: theme.textTheme.titleLarge!.copyWith(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                  const Gap(10),
-                  CircleAvatar(
-                    radius: 100,
-                    backgroundImage: doctor.imageUrl == null
-                        ? const NetworkImage(
-                            'https://i.pinimg.com/564x/2f/59/ef/2f59ef743fdb9bfcf7f0a21b63a00f7e.jpg')
-                        : NetworkImage(doctor.imageUrl!),
-                  ),
-                  Text(
-                    'Dr. ${doctor.name ?? ''}'.toUpperCase(),
-                    style: theme.textTheme.titleLarge!.copyWith(
-                      color: Colors.white,
-                    ),
-                  ),
-                  Text(
-                    doctor.specialization ?? '',
-                    style: theme.textTheme.titleLarge!.copyWith(
-                      color: Colors.white.withOpacity(.6),
-                    ),
-                  ),
-                  const Gap(10),
-                  Text(
-                    doctor.qualification ?? '',
-                    style: theme.textTheme.titleLarge!.copyWith(
-                      color: Colors.white.withOpacity(.6),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          const Gap(10),
           Container(
             width: double.infinity,
             padding: const EdgeInsets.all(12),

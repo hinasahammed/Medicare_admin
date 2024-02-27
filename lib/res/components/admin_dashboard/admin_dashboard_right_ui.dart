@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medicare_admin/res/assets/image_assets.dart';
+import 'package:medicare_admin/res/assets/icons/icons_asset.dart';
 import 'package:medicare_admin/res/components/admin_dashboard/specialisation_card.dart';
 
 class AdminDashboardRightUi extends StatelessWidget {
@@ -27,31 +27,31 @@ class AdminDashboardRightUi extends StatelessWidget {
           child: const Column(
             children: [
               SpecialisationCard(
-                image: ImageAssets.cardio,
+                image: IconsAsset.cardio,
                 title: 'Cardiology',
               ),
               SpecialisationCard(
-                image: ImageAssets.dermatology,
+                image: IconsAsset.dermatology,
                 title: 'Dermatology',
               ),
               SpecialisationCard(
-                image: ImageAssets.gastrology,
+                image: IconsAsset.gastrology,
                 title: 'Gastroenterology',
               ),
               SpecialisationCard(
-                image: ImageAssets.hematology,
+                image: IconsAsset.hematology,
                 title: 'Hematology',
               ),
               SpecialisationCard(
-                image: ImageAssets.nuerologist,
+                image: IconsAsset.nuerologist,
                 title: 'Neurology',
               ),
               SpecialisationCard(
-                image: ImageAssets.pediatrics,
+                image: IconsAsset.pediatrics,
                 title: 'Pediatrics',
               ),
               SpecialisationCard(
-                image: ImageAssets.psychiatry,
+                image: IconsAsset.psychiatry,
                 title: 'Psychiatry',
               ),
             ],

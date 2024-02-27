@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:medicare_admin/models/all_doctor_model/doctor_model.dart';
-import 'package:medicare_admin/res/assets/image_assets.dart';
+import 'package:medicare_admin/res/assets/icons/icons_asset.dart';
 import 'package:medicare_admin/utils/utils.dart';
 import 'package:medicare_admin/viewModel/controller/admin_viewmodel.dart';
 
@@ -79,7 +79,7 @@ class DoctorCard extends StatelessWidget {
                                 child: SizedBox(
                                   width: size.width * .08,
                                   child: Image.asset(
-                                    ImageAssets.deleteButton,
+                                    IconsAsset.deleteButton,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -88,7 +88,7 @@ class DoctorCard extends StatelessWidget {
                                 child: SizedBox(
                                   width: size.width * .08,
                                   child: Image.asset(
-                                    ImageAssets.editButton,
+                                    IconsAsset.editButton,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -160,7 +160,7 @@ class DoctorCard extends StatelessWidget {
                   child: SizedBox(
                     width: size.width * .032,
                     child: Image.asset(
-                      ImageAssets.deleteButton,
+                      IconsAsset.deleteButton,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -171,7 +171,7 @@ class DoctorCard extends StatelessWidget {
                   child: SizedBox(
                     width: size.width * .032,
                     child: Image.asset(
-                      ImageAssets.editButton,
+                      IconsAsset.editButton,
                       fit: BoxFit.cover,
                     ),
                   ),
