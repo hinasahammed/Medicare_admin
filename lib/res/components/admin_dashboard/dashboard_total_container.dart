@@ -24,7 +24,7 @@ class DashboardTotalContainer extends StatelessWidget {
           Text(
             title,
             style: theme.textTheme.bodyLarge!.copyWith(
-              color: theme.colorScheme.onBackground.withOpacity(.5),
+              color: theme.colorScheme.onSurface.withOpacity(.5),
               fontWeight: FontWeight.bold,
             ),
             textAlign: TextAlign.center,
@@ -32,7 +32,7 @@ class DashboardTotalContainer extends StatelessWidget {
           Text(
             count,
             style: theme.textTheme.titleLarge!.copyWith(
-              color: theme.colorScheme.onBackground,
+              color: theme.colorScheme.onSurface,
               fontWeight: FontWeight.bold,
             ),
           )

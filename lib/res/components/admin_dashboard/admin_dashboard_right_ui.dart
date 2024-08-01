@@ -14,7 +14,7 @@ class AdminDashboardRightUi extends StatelessWidget {
         Text(
           "Doctor's Appointment",
           style: theme.textTheme.titleLarge!.copyWith(
-            color: theme.colorScheme.onBackground,
+            color: theme.colorScheme.onSurface,
             fontWeight: FontWeight.bold,
           ),
         ),

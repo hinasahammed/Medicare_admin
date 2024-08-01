@@ -17,7 +17,7 @@ class AdminAppointment extends StatelessWidget {
             Text(
               'Appointments',
               style: theme.textTheme.titleLarge!.copyWith(
-                color: theme.colorScheme.onBackground,
+                color: theme.colorScheme.onSurface,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -44,7 +44,7 @@ class AdminAppointment extends StatelessWidget {
                             Text(
                               'Appointments',
                               style: theme.textTheme.labelLarge!.copyWith(
-                                color: theme.colorScheme.onBackground
+                                color: theme.colorScheme.onSurface
                                     .withOpacity(.6),
                               ),
                             ),
@@ -53,7 +53,7 @@ class AdminAppointment extends StatelessWidget {
                                 Text(
                                   '10',
                                   style: theme.textTheme.titleLarge!.copyWith(
-                                    color: theme.colorScheme.onBackground,
+                                    color: theme.colorScheme.onSurface,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -61,7 +61,7 @@ class AdminAppointment extends StatelessWidget {
                                 Text(
                                   'Today',
                                   style: theme.textTheme.labelLarge!.copyWith(
-                                    color: theme.colorScheme.onBackground
+                                    color: theme.colorScheme.onSurface
                                         .withOpacity(.4),
                                   ),
                                 ),
@@ -84,7 +84,7 @@ class AdminAppointment extends StatelessWidget {
                             Text(
                               'Urgent',
                               style: theme.textTheme.labelLarge!.copyWith(
-                                color: theme.colorScheme.onBackground
+                                color: theme.colorScheme.onSurface
                                     .withOpacity(.6),
                               ),
                             ),
@@ -93,7 +93,7 @@ class AdminAppointment extends StatelessWidget {
                                 Text(
                                   '10',
                                   style: theme.textTheme.titleLarge!.copyWith(
-                                    color: theme.colorScheme.onBackground,
+                                    color: theme.colorScheme.onSurface,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -101,7 +101,7 @@ class AdminAppointment extends StatelessWidget {
                                 Text(
                                   'Today',
                                   style: theme.textTheme.labelLarge!.copyWith(
-                                    color: theme.colorScheme.onBackground
+                                    color: theme.colorScheme.onSurface
                                         .withOpacity(.4),
                                   ),
                                 ),
@@ -124,7 +124,7 @@ class AdminAppointment extends StatelessWidget {
                             Text(
                               'Cancelled',
                               style: theme.textTheme.labelLarge!.copyWith(
-                                color: theme.colorScheme.onBackground
+                                color: theme.colorScheme.onSurface
                                     .withOpacity(.6),
                               ),
                             ),
@@ -133,7 +133,7 @@ class AdminAppointment extends StatelessWidget {
                                 Text(
                                   '10',
                                   style: theme.textTheme.titleLarge!.copyWith(
-                                    color: theme.colorScheme.onBackground,
+                                    color: theme.colorScheme.onSurface,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -141,7 +141,7 @@ class AdminAppointment extends StatelessWidget {
                                 Text(
                                   'Today',
                                   style: theme.textTheme.labelLarge!.copyWith(
-                                    color: theme.colorScheme.onBackground
+                                    color: theme.colorScheme.onSurface
                                         .withOpacity(.4),
                                   ),
                                 ),
@@ -164,7 +164,7 @@ class AdminAppointment extends StatelessWidget {
                             Text(
                               'Completed',
                               style: theme.textTheme.labelLarge!.copyWith(
-                                color: theme.colorScheme.onBackground
+                                color: theme.colorScheme.onSurface
                                     .withOpacity(.6),
                               ),
                             ),
@@ -173,7 +173,7 @@ class AdminAppointment extends StatelessWidget {
                                 Text(
                                   '10',
                                   style: theme.textTheme.titleLarge!.copyWith(
-                                    color: theme.colorScheme.onBackground,
+                                    color: theme.colorScheme.onSurface,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -181,7 +181,7 @@ class AdminAppointment extends StatelessWidget {
                                 Text(
                                   'Today',
                                   style: theme.textTheme.labelLarge!.copyWith(
-                                    color: theme.colorScheme.onBackground
+                                    color: theme.colorScheme.onSurface
                                         .withOpacity(.4),
                                   ),
                                 ),

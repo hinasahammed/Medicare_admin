@@ -24,7 +24,7 @@ class AllDoctors extends StatelessWidget {
             Text(
               'All Doctors',
               style: theme.textTheme.titleLarge!.copyWith(
-                color: theme.colorScheme.onBackground,
+                color: theme.colorScheme.onSurface,
                 fontWeight: FontWeight.bold,
               ),
             ),

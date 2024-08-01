@@ -2,21 +2,17 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:medicare_admin/viewModel/controller/doctor_viewmodel.dart';
-
 class DoctorDashboardRight extends StatelessWidget {
   const DoctorDashboardRight({super.key});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final size = MediaQuery.sizeOf(context);
-    final doctorViewModel = Get.put(DoctorViewModel());
 
     return Obx(() {
-      final doctor = doctorViewModel.doctorData.value;
 
       return Column(
+        
         children: [
           Container(
             width: double.infinity,

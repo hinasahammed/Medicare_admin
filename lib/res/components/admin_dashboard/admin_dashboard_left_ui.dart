@@ -19,7 +19,7 @@ class AdminDashboardLeftUi extends StatelessWidget {
           Text(
             'Dashboard',
             style: theme.textTheme.titleLarge!.copyWith(
-              color: theme.colorScheme.onBackground,
+              color: theme.colorScheme.onSurface,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -74,7 +74,7 @@ class AdminDashboardLeftUi extends StatelessWidget {
                           ? 'Today\'s\nAppointments'
                           : 'Today\'s Appointments',
                       style: theme.textTheme.bodyLarge!.copyWith(
-                        color: theme.colorScheme.onBackground,
+                        color: theme.colorScheme.onSurface,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -83,7 +83,7 @@ class AdminDashboardLeftUi extends StatelessWidget {
                       child: Text(
                         'View all',
                         style: theme.textTheme.labelMedium!.copyWith(
-                          color: theme.colorScheme.onBackground.withOpacity(.6),
+                          color: theme.colorScheme.onSurface.withOpacity(.6),
                         ),
                       ),
                     ),
@@ -101,7 +101,7 @@ class AdminDashboardLeftUi extends StatelessWidget {
                     subtitle: Text(
                       '45 Male,12 april 9:30',
                       style: theme.textTheme.labelLarge!.copyWith(
-                        color: theme.colorScheme.onBackground.withOpacity(.5),
+                        color: theme.colorScheme.onSurface.withOpacity(.5),
                       ),
                     ),
                     trailing: const Icon(
@@ -122,7 +122,7 @@ class AdminDashboardLeftUi extends StatelessWidget {
                     subtitle: Text(
                       '45 Female,12 april 10:30',
                       style: theme.textTheme.labelLarge!.copyWith(
-                        color: theme.colorScheme.onBackground.withOpacity(.5),
+                        color: theme.colorScheme.onSurface.withOpacity(.5),
                       ),
                     ),
                     trailing: const Icon(
