@@ -12,7 +12,6 @@ class DoctorDashboardLeft extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final size = MediaQuery.sizeOf(context);
     final doctorData = Get.put(DoctorViewModel());
     return Obx(() {
       var doctor = doctorData.doctorData.value;
